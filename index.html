@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshaya Store - E-Commerce Web App</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0d6efd, #6610f2);
+      color: white;
+      padding: 18px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-box input {
+      padding: 10px 12px;
+      width: 230px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .cart-box {
+      background: rgba(255,255,255,0.18);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, #ffffff, #e8f0ff);
+      padding: 45px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 34px;
+      color: #0d3b66;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      background: #0d6efd;
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background: #0b5ed7;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 35px 0 20px;
+      font-size: 28px;
+      color: #0d3b66;
+    }
+
+    .products {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      padding: 18px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 24px rgba(0,0,0,0.12);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      background: #eef2f7;
+    }
+
+    .card h3 {
+      color: #1f2937;
+      margin-bottom: 8px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #555;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    .price {
+      color: #0d6efd;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .card button {
+      flex: 1;
+      padding: 10px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .add-btn {
+      background: #198754;
+      color: white;
+    }
+
+    .add-btn:hover {
+      background: #157347;
+    }
+
+    .buy-btn {
+      background: #fd7e14;
+      color: white;
+    }
+
+    .buy-btn:hover {
+      background: #e96b00;
+    }
+
+    .features {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-box {
+      background: white;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .feature-box h4 {
+      color: #0d3b66;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .feature-box p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .cart-section {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      padding: 24px;
+    }
+
+    .cart-section h3 {
+      color: #0d3b66;
+      margin-bottom: 15px;
+      font-size: 26px;
+    }
+
+    .cart-items {
+      margin-bottom: 15px;
+      min-height: 30px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid #e5e7eb;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cart-item strong {
+      color: #111827;
+    }
+
+    .remove-btn {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      background: #bb2d3b;
+    }
+
+    .total {
+      font-size: 20px;
+      font-weight: bold;
+      color: #198754;
+      margin-bottom: 12px;
+    }
+
+    .checkout-btn {
+      background: #0d6efd;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .checkout-btn:hover {
+      background: #0b5ed7;
+    }
+
+    footer {
+      background: #0d3b66;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 16px;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .search-box input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🛒 Akshaya Store</h1>
+    <div class="header-right">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()" />
+      </div>
+      <div class="cart-box">Cart: <span id="cartCount">0</span></div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h2>Welcome to Akshaya Store</h2>
+    <p>Shop electronics, fashion, and accessories with a clean E-Commerce experience.</p>
+    <button onclick="scrollToProducts()">Shop Now</button>
+  </section>
+
+  <h2 class="section-title" id="productsTitle">Featured Products</h2>
+
+  <section class="products" id="productContainer">
+    <div class="card product" data-name="Wireless Headphones">
+      <img class="product-image" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80" alt="Wireless Headphones">
+      <h3>Wireless Headphones</h3>
+      <p>High-quality sound, comfortable fit, and long-lasting battery life.</p>
+      <div class="price">₹2,499</div>
+      <div class="btn-group">
+        <button class="add-btn" onclick="addToCart('Wireless Headphones', 2499)">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNow('Wireless Headphones')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="card product" data-name="Smart Watch">
+      <img class="product-image" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80" alt="Smart Watch">
+      <h3>Smart Watch</h3>
+      <p>Track fitness, heart rate, and notifications with a stylish smart watch.</p>
+      <div class="price">₹3,999</div>
+      <div class="btn-group">
+        <button class="add-btn" onclick="addToCart('Smart Watch', 3999)">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNow('Smart Watch')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="card product" data-name="Laptop Backpack">
+      <img class="product-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Laptop Backpack">
+      <h3>Laptop Backpack</h3>
+      <p>Spacious, stylish, and durable backpack perfect for college and travel.</p>
+      <div class="price">₹1,299</div>
+      <div class="btn-group">
+        <button class="add-btn" onclick="addToCart('Laptop Backpack', 1299)">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNow('Laptop Backpack')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="card product" data-name="Running Shoes">
+      <img class="product-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Running Shoes">
+      <h3>Running Shoes</h3>
+      <p>Lightweight running shoes with comfortable sole and trendy design.</p>
+      <div class="price">₹2,199</div>
+      <div class="btn-group">
+        <button class="add-btn" onclick="addToCart('Running Shoes', 2199)">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNow('Running Shoes')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="card product" data-name="Bluetooth Speaker">
+      <img class="product-image" src="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80" alt="Bluetooth Speaker">
+      <h3>Bluetooth Speaker</h3>
+      <p>Portable speaker with powerful bass and crystal clear sound quality.</p>
+      <div class="price">₹1,799</div>
+      <div class="btn-group">
+        <button class="add-btn" onclick="addToCart('Bluetooth Speaker', 1799)">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNow('Bluetooth Speaker')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="card product" data-name="Gaming Mouse">
+      <img class="product-image" src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=80" alt="Gaming Mouse">
+      <h3>Gaming Mouse</h3>
+      <p>Ergonomic gaming mouse with RGB lights and precision control.</p>
+      <div class="price">₹999</div>
+      <div class="btn-group">
+        <button class="add-btn" onclick="addToCart('Gaming Mouse', 999)">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNow('Gaming Mouse')">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="section-title">Why Choose Our Store?</h2>
+  <section class="features">
+    <div class="feature-box">
+      <h4>Secure Checkout</h4>
+      <p>Simple and secure shopping experience with easy checkout flow.</p>
+    </div>
+    <div class="feature-box">
+      <h4>Product Catalog</h4>
+      <p>Browse multiple products with pricing, descriptions, and images.</p>
+    </div>
+    <div class="feature-box">
+      <h4>Responsive Design</h4>
+      <p>Works smoothly on desktop, tablet, and mobile devices.</p>
+    </div>
+  </section>
+
+  <section class="cart-section">
+    <h3>🧺 Shopping Cart</h3>
+    <div class="cart-items" id="cartItems">
+      <p>No items in cart.</p>
+    </div>
+    <div class="total">Total: ₹<span id="totalPrice">0</span></div>
+    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+  </section>
+
+  <footer>
+    <p>© 2026 Akshaya Store | E-Commerce Web Application Project</p>
+  </footer>
+
+  <script>
+    let cart = [];
+
+    function scrollToProducts() {
+      document.getElementById("productsTitle").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCart();
+      alert(name + " added to cart!");
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cartItems");
+      const cartCount = document.getElementById("cartCount");
+      const totalPrice = document.getElementById("totalPrice");
+
+      cartCount.textContent = cart.length;
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = "<p>No items in cart.</p>";
+        totalPrice.textContent = 0;
+        return;
+      }
+
+      let total = 0;
+      cartItems.innerHTML = "";
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        cartItems.innerHTML += `
+          <div class="cart-item">
+            <div>
+              <strong>${item.name}</strong><br>
+              ₹${item.price}
+            </div>
+            <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+          </div>
+        `;
+      });
+
+      totalPrice.textContent = total;
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+      } else {
+        alert("Order placed successfully! Thank you for shopping.");
+        cart = [];
+        updateCart();
+      }
+    }
+
+    function buyNow(productName) {
+      alert("Redirecting to checkout for " + productName + "...");
+    }
+
+    function searchProducts() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const products = document.querySelectorAll(".product");
+
+      products.forEach(product => {
+        const name = product.getAttribute("data-name").toLowerCase();
+        if (name.includes(input)) {
+          product.style.display = "flex";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
