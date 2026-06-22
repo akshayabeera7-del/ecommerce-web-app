@@ -13,417 +13,465 @@
     }
 
     body {
-      background: #f4f6f9;
-      color: #222;
+      background: #f4f7fb;
+      color: #333;
     }
 
-    header {
-      background: linear-gradient(90deg, #0d6efd, #6610f2);
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(90deg, #1d4ed8, #2563eb);
       color: white;
-      padding: 18px 30px;
+      padding: 18px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
       flex-wrap: wrap;
-      gap: 12px;
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 1000;
     }
 
-    header h1 {
-      font-size: 28px;
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .search-box input {
-      padding: 10px 12px;
-      width: 230px;
-      border: none;
-      border-radius: 8px;
-      outline: none;
-    }
-
-    .cart-box {
-      background: rgba(255,255,255,0.18);
-      padding: 10px 14px;
-      border-radius: 10px;
+    .logo {
+      font-size: 2rem;
       font-weight: bold;
     }
 
-    .hero {
-      background: linear-gradient(120deg, #ffffff, #e8f0ff);
-      padding: 45px 20px;
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 34px;
-      color: #0d3b66;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .hero button {
-      background: #0d6efd;
-      color: white;
-      border: none;
-      padding: 12px 22px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .hero button:hover {
-      background: #0b5ed7;
-    }
-
-    .section-title {
-      text-align: center;
-      margin: 35px 0 20px;
-      font-size: 28px;
-      color: #0d3b66;
-    }
-
-    .products {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 14px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-      padding: 18px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    .nav-right {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 24px rgba(0,0,0,0.12);
-    }
-
-    .product-image {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      background: #eef2f7;
-    }
-
-    .card h3 {
-      color: #1f2937;
-      margin-bottom: 8px;
-      font-size: 22px;
-    }
-
-    .card p {
-      color: #555;
-      margin-bottom: 10px;
-      line-height: 1.5;
+    .search-box {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: none;
+      width: 260px;
+      outline: none;
       font-size: 15px;
     }
 
-    .price {
-      color: #0d6efd;
-      font-size: 22px;
+    .cart-box {
+      font-size: 1.1rem;
       font-weight: bold;
+      background: rgba(255,255,255,0.15);
+      padding: 10px 14px;
+      border-radius: 8px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: #ffffff;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #1d4ed8;
       margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .hero button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: #1e40af;
+    }
+
+    /* Section title */
+    .section-title {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2rem;
+      color: #1f2937;
+    }
+
+    /* Products */
+    .products-container {
+      max-width: 1300px;
+      margin: auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #1f2937;
+    }
+
+    .product-info p {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      min-height: 72px;
+    }
+
+    .price {
+      font-size: 1.8rem;
+      color: #2563eb;
+      font-weight: bold;
+      margin-bottom: 15px;
     }
 
     .btn-group {
       display: flex;
       gap: 10px;
-      flex-wrap: wrap;
+      margin-top: auto;
     }
 
-    .card button {
+    .btn {
       flex: 1;
-      padding: 10px 12px;
+      padding: 11px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      font-weight: bold;
       font-size: 15px;
-      font-weight: 600;
+      transition: 0.3s;
     }
 
     .add-btn {
-      background: #198754;
+      background: #16a34a;
       color: white;
     }
 
     .add-btn:hover {
-      background: #157347;
+      background: #15803d;
     }
 
     .buy-btn {
-      background: #fd7e14;
+      background: #f97316;
       color: white;
     }
 
     .buy-btn:hover {
-      background: #e96b00;
+      background: #ea580c;
     }
 
-    .features {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    .feature-box {
-      background: white;
-      padding: 22px;
-      border-radius: 14px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    /* No results */
+    .no-results {
       text-align: center;
+      font-size: 1.2rem;
+      color: #dc2626;
+      margin: 20px auto 40px;
+      display: none;
+      font-weight: bold;
     }
 
-    .feature-box h4 {
-      color: #0d3b66;
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .feature-box p {
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .cart-section {
-      width: 90%;
+    /* Checkout section */
+    .checkout-section {
       max-width: 1100px;
-      margin: 0 auto 40px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .checkout-box {
       background: white;
       border-radius: 14px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       padding: 24px;
     }
 
-    .cart-section h3 {
-      color: #0d3b66;
-      margin-bottom: 15px;
-      font-size: 26px;
-    }
-
-    .cart-items {
-      margin-bottom: 15px;
-      min-height: 30px;
+    .checkout-box h2 {
+      margin-bottom: 18px;
+      color: #1d4ed8;
+      text-align: center;
     }
 
     .cart-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px;
-      border-bottom: 1px solid #e5e7eb;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
       gap: 10px;
       flex-wrap: wrap;
     }
 
-    .cart-item strong {
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-item-name {
+      font-weight: bold;
       color: #111827;
     }
 
-    .remove-btn {
-      background: #dc3545;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .remove-btn:hover {
-      background: #bb2d3b;
+    .cart-item-price {
+      color: #2563eb;
+      font-weight: bold;
     }
 
     .total {
-      font-size: 20px;
+      text-align: right;
+      margin-top: 20px;
+      font-size: 1.3rem;
       font-weight: bold;
-      color: #198754;
-      margin-bottom: 12px;
+      color: #111827;
     }
 
-    .checkout-btn {
-      background: #0d6efd;
-      color: white;
+    .checkout-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .clear-btn, .place-order-btn {
       border: none;
-      padding: 12px 18px;
+      padding: 12px 20px;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 16px;
+      font-weight: bold;
+      font-size: 15px;
     }
 
-    .checkout-btn:hover {
-      background: #0b5ed7;
+    .clear-btn {
+      background: #dc2626;
+      color: white;
+    }
+
+    .clear-btn:hover {
+      background: #b91c1c;
+    }
+
+    .place-order-btn {
+      background: #2563eb;
+      color: white;
+    }
+
+    .place-order-btn:hover {
+      background: #1d4ed8;
+    }
+
+    .empty-cart {
+      text-align: center;
+      color: #666;
+      padding: 15px 0;
+      font-size: 1.05rem;
     }
 
     footer {
-      background: #0d3b66;
+      margin-top: 50px;
+      background: #111827;
       color: white;
       text-align: center;
-      padding: 18px;
-      margin-top: 20px;
+      padding: 20px;
+      font-size: 15px;
     }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 16px;
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 16px 20px;
       }
 
-      header h1 {
-        font-size: 22px;
+      .logo {
+        font-size: 1.6rem;
       }
 
-      .hero h2 {
-        font-size: 28px;
-      }
-
-      .search-box input {
+      .search-box {
         width: 100%;
+      }
+
+      .nav-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .product-card img {
+        height: 200px;
+      }
+
+      .product-info h3 {
+        font-size: 1.3rem;
+      }
+
+      .price {
+        font-size: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>🛒 Akshaya Store</h1>
-    <div class="header-right">
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()" />
-      </div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🛒 Akshaya Store</div>
+    <div class="nav-right">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-box"
+        placeholder="Search products..."
+        onkeyup="searchProducts()"
+      />
       <div class="cart-box">Cart: <span id="cartCount">0</span></div>
     </div>
-  </header>
+  </nav>
 
+  <!-- Hero Section -->
   <section class="hero">
-    <h2>Welcome to Akshaya Store</h2>
+    <h1>Welcome to Akshaya Store</h1>
     <p>Shop electronics, fashion, and accessories with a clean E-Commerce experience.</p>
     <button onclick="scrollToProducts()">Shop Now</button>
   </section>
 
+  <!-- Products -->
   <h2 class="section-title" id="productsTitle">Featured Products</h2>
+  <div id="noResults" class="no-results">No products found.</div>
 
-  <section class="products" id="productContainer">
-    <div class="card product" data-name="Wireless Headphones">
-      <img class="product-image" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80" alt="Wireless Headphones">
-      <h3>Wireless Headphones</h3>
-      <p>High-quality sound, comfortable fit, and long-lasting battery life.</p>
-      <div class="price">₹2,499</div>
-      <div class="btn-group">
-        <button class="add-btn" onclick="addToCart('Wireless Headphones', 2499)">Add to Cart</button>
-        <button class="buy-btn" onclick="buyNow('Wireless Headphones')">Buy Now</button>
+  <section class="products-container" id="productList">
+    <div class="product-card product">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80" alt="Wireless Headphones">
+      <div class="product-info">
+        <h3 class="product-name">Wireless Headphones</h3>
+        <p>High-quality sound, comfortable fit, and long-lasting battery life.</p>
+        <div class="price">₹2,499</div>
+        <div class="btn-group">
+          <button class="btn add-btn" onclick="addToCart('Wireless Headphones', 2499)">Add to Cart</button>
+          <button class="btn buy-btn" onclick="buyNow('Wireless Headphones', 2499)">Buy Now</button>
+        </div>
       </div>
     </div>
 
-    <div class="card product" data-name="Smart Watch">
-      <img class="product-image" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80" alt="Smart Watch">
-      <h3>Smart Watch</h3>
-      <p>Track fitness, heart rate, and notifications with a stylish smart watch.</p>
-      <div class="price">₹3,999</div>
-      <div class="btn-group">
-        <button class="add-btn" onclick="addToCart('Smart Watch', 3999)">Add to Cart</button>
-        <button class="buy-btn" onclick="buyNow('Smart Watch')">Buy Now</button>
+    <div class="product-card product">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80" alt="Smart Watch">
+      <div class="product-info">
+        <h3 class="product-name">Smart Watch</h3>
+        <p>Track fitness, heart rate, and notifications with a stylish smart watch.</p>
+        <div class="price">₹3,999</div>
+        <div class="btn-group">
+          <button class="btn add-btn" onclick="addToCart('Smart Watch', 3999)">Add to Cart</button>
+          <button class="btn buy-btn" onclick="buyNow('Smart Watch', 3999)">Buy Now</button>
+        </div>
       </div>
     </div>
 
-    <div class="card product" data-name="Laptop Backpack">
-      <img class="product-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Laptop Backpack">
-      <h3>Laptop Backpack</h3>
-      <p>Spacious, stylish, and durable backpack perfect for college and travel.</p>
-      <div class="price">₹1,299</div>
-      <div class="btn-group">
-        <button class="add-btn" onclick="addToCart('Laptop Backpack', 1299)">Add to Cart</button>
-        <button class="buy-btn" onclick="buyNow('Laptop Backpack')">Buy Now</button>
+    <div class="product-card product">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Running Shoes">
+      <div class="product-info">
+        <h3 class="product-name">Running Shoes</h3>
+        <p>Lightweight running shoes with a comfortable sole and trendy design.</p>
+        <div class="price">₹2,199</div>
+        <div class="btn-group">
+          <button class="btn add-btn" onclick="addToCart('Running Shoes', 2199)">Add to Cart</button>
+          <button class="btn buy-btn" onclick="buyNow('Running Shoes', 2199)">Buy Now</button>
+        </div>
       </div>
     </div>
 
-    <div class="card product" data-name="Running Shoes">
-      <img class="product-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Running Shoes">
-      <h3>Running Shoes</h3>
-      <p>Lightweight running shoes with comfortable sole and trendy design.</p>
-      <div class="price">₹2,199</div>
-      <div class="btn-group">
-        <button class="add-btn" onclick="addToCart('Running Shoes', 2199)">Add to Cart</button>
-        <button class="buy-btn" onclick="buyNow('Running Shoes')">Buy Now</button>
+    <div class="product-card product">
+      <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=80" alt="Bluetooth Speaker">
+      <div class="product-info">
+        <h3 class="product-name">Bluetooth Speaker</h3>
+        <p>Portable speaker with powerful bass and crystal clear sound quality.</p>
+        <div class="price">₹1,799</div>
+        <div class="btn-group">
+          <button class="btn add-btn" onclick="addToCart('Bluetooth Speaker', 1799)">Add to Cart</button>
+          <button class="btn buy-btn" onclick="buyNow('Bluetooth Speaker', 1799)">Buy Now</button>
+        </div>
       </div>
     </div>
 
-    <div class="card product" data-name="Bluetooth Speaker">
-      <img class="product-image" src="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80" alt="Bluetooth Speaker">
-      <h3>Bluetooth Speaker</h3>
-      <p>Portable speaker with powerful bass and crystal clear sound quality.</p>
-      <div class="price">₹1,799</div>
-      <div class="btn-group">
-        <button class="add-btn" onclick="addToCart('Bluetooth Speaker', 1799)">Add to Cart</button>
-        <button class="buy-btn" onclick="buyNow('Bluetooth Speaker')">Buy Now</button>
+    <div class="product-card product">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=80" alt="Digital Camera">
+      <div class="product-info">
+        <h3 class="product-name">Digital Camera</h3>
+        <p>Capture stunning photos and videos with this compact digital camera.</p>
+        <div class="price">₹18,999</div>
+        <div class="btn-group">
+          <button class="btn add-btn" onclick="addToCart('Digital Camera', 18999)">Add to Cart</button>
+          <button class="btn buy-btn" onclick="buyNow('Digital Camera', 18999)">Buy Now</button>
+        </div>
       </div>
     </div>
 
-    <div class="card product" data-name="Gaming Mouse">
-      <img class="product-image" src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=80" alt="Gaming Mouse">
-      <h3>Gaming Mouse</h3>
-      <p>Ergonomic gaming mouse with RGB lights and precision control.</p>
-      <div class="price">₹999</div>
-      <div class="btn-group">
-        <button class="add-btn" onclick="addToCart('Gaming Mouse', 999)">Add to Cart</button>
-        <button class="buy-btn" onclick="buyNow('Gaming Mouse')">Buy Now</button>
+    <div class="product-card product">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80" alt="Smartphone">
+      <div class="product-info">
+        <h3 class="product-name">Smartphone</h3>
+        <p>Fast performance, great camera, and sleek design for everyday use.</p>
+        <div class="price">₹14,999</div>
+        <div class="btn-group">
+          <button class="btn add-btn" onclick="addToCart('Smartphone', 14999)">Add to Cart</button>
+          <button class="btn buy-btn" onclick="buyNow('Smartphone', 14999)">Buy Now</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <h2 class="section-title">Why Choose Our Store?</h2>
-  <section class="features">
-    <div class="feature-box">
-      <h4>Secure Checkout</h4>
-      <p>Simple and secure shopping experience with easy checkout flow.</p>
-    </div>
-    <div class="feature-box">
-      <h4>Product Catalog</h4>
-      <p>Browse multiple products with pricing, descriptions, and images.</p>
-    </div>
-    <div class="feature-box">
-      <h4>Responsive Design</h4>
-      <p>Works smoothly on desktop, tablet, and mobile devices.</p>
-    </div>
-  </section>
+  <!-- Checkout / Cart Section -->
+  <section class="checkout-section">
+    <div class="checkout-box">
+      <h2>Cart Summary</h2>
+      <div id="cartItemsContainer">
+        <div class="empty-cart">Your cart is empty.</div>
+      </div>
+      <div class="total">Total: ₹<span id="cartTotal">0</span></div>
 
-  <section class="cart-section">
-    <h3>🧺 Shopping Cart</h3>
-    <div class="cart-items" id="cartItems">
-      <p>No items in cart.</p>
+      <div class="checkout-actions">
+        <button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+        <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+      </div>
     </div>
-    <div class="total">Total: ₹<span id="totalPrice">0</span></div>
-    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
   </section>
 
   <footer>
-    <p>© 2026 Akshaya Store | E-Commerce Web Application Project</p>
+    © 2026 Akshaya Store | E-Commerce Web Application
   </footer>
 
   <script>
@@ -433,76 +481,95 @@
       document.getElementById("productsTitle").scrollIntoView({ behavior: "smooth" });
     }
 
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      updateCart();
-      alert(name + " added to cart!");
+    function addToCart(productName, price) {
+      cart.push({ name: productName, price: price });
+      updateCartUI();
+      alert(productName + " added to cart!");
     }
 
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCart();
+    function buyNow(productName, price) {
+      alert("Order placed successfully for " + productName + " (₹" + price + ")");
     }
 
-    function updateCart() {
-      const cartItems = document.getElementById("cartItems");
-      const cartCount = document.getElementById("cartCount");
-      const totalPrice = document.getElementById("totalPrice");
+    function updateCartUI() {
+      document.getElementById("cartCount").innerText = cart.length;
 
-      cartCount.textContent = cart.length;
+      const cartContainer = document.getElementById("cartItemsContainer");
+      const cartTotal = document.getElementById("cartTotal");
+
+      cartContainer.innerHTML = "";
 
       if (cart.length === 0) {
-        cartItems.innerHTML = "<p>No items in cart.</p>";
-        totalPrice.textContent = 0;
+        cartContainer.innerHTML = '<div class="empty-cart">Your cart is empty.</div>';
+        cartTotal.innerText = 0;
         return;
       }
 
       let total = 0;
-      cartItems.innerHTML = "";
 
       cart.forEach((item, index) => {
         total += item.price;
-        cartItems.innerHTML += `
-          <div class="cart-item">
-            <div>
-              <strong>${item.name}</strong><br>
-              ₹${item.price}
-            </div>
-            <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
-          </div>
+
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("cart-item");
+        itemDiv.innerHTML = `
+          <div class="cart-item-name">${index + 1}. ${item.name}</div>
+          <div class="cart-item-price">₹${item.price}</div>
         `;
+        cartContainer.appendChild(itemDiv);
       });
 
-      totalPrice.textContent = total;
+      cartTotal.innerText = total;
     }
 
-    function checkout() {
+    function clearCart() {
       if (cart.length === 0) {
-        alert("Your cart is empty!");
-      } else {
-        alert("Order placed successfully! Thank you for shopping.");
-        cart = [];
-        updateCart();
+        alert("Cart is already empty!");
+        return;
       }
+
+      cart = [];
+      updateCartUI();
+      alert("Cart cleared successfully!");
     }
 
-    function buyNow(productName) {
-      alert("Redirecting to checkout for " + productName + "...");
+    function placeOrder() {
+      if (cart.length === 0) {
+        alert("Your cart is empty. Please add products first.");
+        return;
+      }
+
+      let total = cart.reduce((sum, item) => sum + item.price, 0);
+      alert("Order placed successfully! Total amount: ₹" + total);
+      cart = [];
+      updateCartUI();
     }
 
     function searchProducts() {
       const input = document.getElementById("searchInput").value.toLowerCase();
       const products = document.querySelectorAll(".product");
+      const noResults = document.getElementById("noResults");
+
+      let found = false;
 
       products.forEach(product => {
-        const name = product.getAttribute("data-name").toLowerCase();
+        const name = product.querySelector(".product-name").innerText.toLowerCase();
+
         if (name.includes(input)) {
           product.style.display = "flex";
+          found = true;
         } else {
           product.style.display = "none";
         }
       });
+
+      if (found) {
+        noResults.style.display = "none";
+      } else {
+        noResults.style.display = "block";
+      }
     }
   </script>
+
 </body>
 </html>
